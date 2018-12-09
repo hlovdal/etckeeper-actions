@@ -1,3 +1,8 @@
+#!/usr/bin/python
+
+# Copyright: (c) 2018, Håkon Løvdal <kode@denkule.no>
+# GNU General Public License v3.0+ (see gpl.txt, https://tldrlegal.com/l/gpl-3.0 or https://www.gnu.org/licenses/gpl-3.0.txt)
+
 from ansible.plugins.action import ActionBase
 
 class ActionModule(ActionBase):
