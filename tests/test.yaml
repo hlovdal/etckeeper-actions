@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: "Create uncommitted test file"
+      shell: "date >> /etc/eliftset"
+
+    - etckeeper-pre-task:
+
+    - name: "Task that modifies test file in /etc"
+      lineinfile:
+        path: "/etc/eliftset"
+        line: 'test line'
+        state: present
+      register: file_modification_result
+
+    - etckeeper-post-task:
+      when: file_modification_result.changed
+
+    - name: "Cleanup"
+      file:
+        path: "/etc/eliftset"
+        state: absent
+
+    - say:
+        msg: "Remember to remove the dummy test commits in /etc"
+      delegate_to: localhost
+      # Assuming two commits are made by running this playbook:
+      # cd /etc
+      # git reset HEAD^^
+      # git co .etkceeper          # To make etckeeper forget about /etc/eliftset
