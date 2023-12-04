@@ -26,8 +26,9 @@ or
 [user](https://docs.ansible.com/ansible/latest/modules/user_module.html)
 are not committed automatically.
 
-With the three actions `etckeeper-pre-task`, `etckeeper-commit-task`, and `etckeeper-post-task` you can
-make sure that any changes in `/etc` triggered by an ansible task are commited.
+With the three actions `etckeeper-pre-task`, `etckeeper-commit-task`, and
+`etckeeper-post-task` you can make sure that any changes in `/etc` triggered
+by an ansible task are commited.
 
 
 ## Example Playbook
