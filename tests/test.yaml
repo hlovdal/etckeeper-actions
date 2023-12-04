@@ -7,15 +7,36 @@
 
     - etckeeper-pre-task:
 
-    - name: "Task that modifies test file in /etc"
+    - name: "Task that modifies test file in /etc 1"
       lineinfile:
         path: "/etc/eliftset"
-        line: 'test line'
+        line: 'test line 1'
         state: present
-      register: file_modification_result
+      register: file_modification_result1
+
+    - etckeeper-commit-task:
+      when: file_modification_result1.changed
+
+    - name: "Task that modifies test file in /etc 2"
+      lineinfile:
+        path: "/etc/eliftset"
+        line: 'test line 2'
+        state: present
+      register: file_modification_result2
+
+    - etckeeper-commit-task:
+        msg: Etckeeper commit with custom message after adding test line 2 to eliftset
+      when: file_modification_result2.changed
+
+    - name: "Task that modifies test file in /etc 3"
+      lineinfile:
+        path: "/etc/eliftset"
+        line: 'test line 3'
+        state: present
+      register: file_modification_result3
 
     - etckeeper-post-task:
-      when: file_modification_result.changed
+      when: file_modification_result1.changed
 
     - name: "Cleanup"
       file:
