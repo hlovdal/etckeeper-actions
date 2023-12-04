@@ -26,7 +26,7 @@ or
 [user](https://docs.ansible.com/ansible/latest/modules/user_module.html)
 are not committed automatically.
 
-With the two actions `etckeeper-pre-task` and `etckeeper-post-task` you can
+With the three actions `etckeeper-pre-task`, `etckeeper-commit-task`, and `etckeeper-post-task` you can
 make sure that any changes in `/etc` triggered by an ansible task are commited.
 
 
@@ -57,6 +57,17 @@ with commit message `saving uncommitted changes in /etc prior to ansible task ru
 
 If the user were removed, that change would be checked in with a commit with message
 `saving uncommitted changes in /etc prior to ansible task run`.
+
+To set a custom message on a commit:
+```yaml
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - etckeeper-commit-task:
+      msg: Etckeeper commit in role_name taskfile before some_change
+```
+
 
 ## Dependencies
 
