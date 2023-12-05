@@ -17,7 +17,7 @@ def run_etckeeper(self, msg):
     result = self._low_level_execute_command('etckeeper commit "%s"' % msg)
 
     # In case of no changes the command will fail, but ignore that
-    if (result['rc'] == 1) and ('nothing to commit, working tree clean' in result['stdout']):
+    if (result['rc'] == 1) and ('nothing to commit' in result['stdout']):
         result['rc'] = 0
 
     # If etckeeper is not installed, do not treat that as an error.
