@@ -123,7 +123,7 @@ you the full granularity you could have had.
 
 ## Version
 
-The latest version is 1.0.0. See the [changelog](./CHANGELOG.md) for details.
+The latest version is 1.0.1. See the [changelog](./CHANGELOG.md) for details.
 
 ## Maintainers
 
