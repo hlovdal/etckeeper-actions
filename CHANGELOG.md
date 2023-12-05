@@ -11,7 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added an additional etckeeper action that allows for setting custom msg.
+
 ### Changed
+
+- Renamed `master` branch to `main`.
+- Make check for "nothing to commit" state less strict to support older versions
+  of etckeeper (CentOS7 EPEL7's version).
 
 ### Removed
 
