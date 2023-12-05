@@ -95,7 +95,7 @@ improved.
 
 ### TODO list
 
-* Figure out how to share code between the two files.
+* Figure out how to share code between the three files.
 
 ## FAQ
 
